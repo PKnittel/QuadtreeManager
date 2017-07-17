@@ -1,19 +1,25 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function serializeTree(tree, index) {
-  if (typeof tree === 'string') return index + ':' +tree + ' ';
-  const nodes = Object.values(tree);
+function getStyle(depth) {
+  return {
+    'text-align': 'left',
+    'text-indent': 50 + depth * 20 + 'px',
+  }
+};
 
-  let result = '';
-  nodes.forEach(function(node, i) {
-  	result += serializeTree(node, index + '/'+ i);
-  })
-  return result;
+function serializeTree(node, index, depth) {
+  if ( !node.children ) return (<div key={index} style={getStyle(depth)}> {index + ':' + node.content + ' '} <br/></div>);
+
+  return (<div key={index} style={getStyle(depth)}> {index + ':' + node.content + ' '} <br/>
+    {node.children.map(function(node, i) {
+      return serializeTree(node, index + '/'+ i, depth + 1);
+    })}
+  </div>);
 }
 
 export default function Quadtree(props) {
-	const text = serializeTree(props.structure, 'x');
+	const text = serializeTree(props.structure, 'x', 0);
   return (<div className="TreeStructure">{text}</div>);
 }
 

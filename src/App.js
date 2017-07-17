@@ -7,30 +7,45 @@ import Quadtree from './quadtree/Quadtree';
 class App extends Component {
   render() {
     const structure = {
-      0:{
-        0: 'test',
-        1: 'WiFi',
-        2: 'BT',
-        3: 'test 2',
-      },
-      1:{
-        0: 'test',
-        1: 'WiFi',
-        2: 'BT',
-        3: 'test 3',
-      },
-      2:{
-        0: 'test',
-        1: 'WiFi',
-        2: 'BT',
-        3: 'test 9',
-      },
-      3:{
-        0: 'test',
-        1: 'WiFi',
-        2: 'BT',
-        3: 'test 12',
-      }
+      content: null,
+      children: [
+        {
+          content: null,
+          children: [
+            { content: 'test' },
+            { content: 'WiFi' },
+            { content: 'BT' },
+            { content: 'test 2' },
+          ],
+        },
+        {
+          content: 'Donnerblitz',
+          children: [
+            { content: 'test' },
+            { content: 'WiFi' },
+            { content: 'BT' },
+            { content: 'test 3' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'test' },
+            { content: 'WiFi' },
+            { content: 'BT' },
+            { content: 'test 9' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'test' },
+            { content: 'WiFi' },
+            { content: 'BT' },
+            { content: 'test 12' },
+          ],
+        }
+      ]
     }
 
 
