@@ -3,15 +3,15 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import './index.css';
-import App from './App';
-import reducer from './reducer';
+import AppContainer from './app/AppContainer';
+import reducer from './app/reducer';
 import registerServiceWorker from './registerServiceWorker';
 
 let store = createStore(reducer)
 
 render(
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById('root')
 );

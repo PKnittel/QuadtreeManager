@@ -1,16 +1,15 @@
-const TEXT = 'TEXT';
-const TREE = 'TREE';
-const MAP = 'MAP';
+export const TEXT = 'TEXT';
+export const TREE = 'TREE';
+export const MAP = 'MAP';
 
 const reducer = (state = {
-  actionFired: false,
   viewMode: TEXT
 }, action) => {
   switch (action.type) {
-    case 'DUMMY_ACTION':
+    case 'CHANGE_MODE':
       return {
         ...state,
-        actionFired: !state.actionFired
+        viewMode: action.payload,
       }
     default:
       return state

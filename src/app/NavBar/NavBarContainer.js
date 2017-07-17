@@ -9,8 +9,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onClick() {
-      dispatch(actions.dummyAction());
+    onClick(mode) {
+      console.log('test' + mode);
+      dispatch(actions.changeMode(mode));
     }
   }
 }
