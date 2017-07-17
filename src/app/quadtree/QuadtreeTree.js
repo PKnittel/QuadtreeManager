@@ -1,20 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function serializeTree(node, index, depth) {
-  if ( !node.children ) return (<div key={index}> {index + ':' + node.content + ' '} <br/></div>);
+function serializeTree(node, index, width, center) {
+  if ( !node.children ) return ( <g transform={`translate(${center},${40})`}>
+      <circle cx="-5" cy="-4" r="3" stroke="black" stroke-width="1" fill="red" />
+      <text fill="red">{node.content}</text>
+    </g>);
 
-  return (<div key={index}> {index + ':' + node.content + ' '} <br/>
+  return (<g transform={`translate(${center},${40})`}>
+    <circle cx="-5" cy="-4" r="3" stroke="black" stroke-width="1" fill="red" />
+    <text fill="red">{node.content}</text>
     {node.children.map(function(node, i) {
-      return serializeTree(node, index + '/'+ i, depth + 1);
+      const newCenter = ((i - 1.5) * 0.25 * width);
+      return serializeTree(node, i, 0.2 * width, newCenter);
     })}
-  </div>);
+  </g>);
 }
 
 export default function Quadtree(props) {
-  	return (<svg width="100" height="100">
-	  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-	</svg>);
+  return (<svg width="1200" height="1000">
+    <g transform={`translate(${600},${0})`}>
+      { serializeTree(props.structure, 'x', 1000, 0) }
+    </g>
+  </svg>);
 }
 
 Quadtree.propTypes = {

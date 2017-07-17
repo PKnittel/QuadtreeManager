@@ -19,8 +19,7 @@ function serializeTree(node, index, depth) {
 }
 
 export default function Quadtree(props) {
-	const text = serializeTree(props.structure, 'x', 0);
-  return (<div className="TreeStructure">{text}</div>);
+  return (<div className="TreeStructure">{ serializeTree(props.structure, 'x', 0) }</div>);
 }
 
 Quadtree.propTypes = {
