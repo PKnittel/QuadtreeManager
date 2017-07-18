@@ -24,7 +24,7 @@ const structure = {
     {
       content: 'Donnerblitz',
       children: [
-        { content: 'test' },
+        { content: null },
         { content: 'WiFi' },
         { content: 'BT' },
         { content: 'test 3' },
@@ -35,7 +35,7 @@ const structure = {
       children: [
         { content: 'test' },
         { content: 'WiFi' },
-        { content: 'BT' },
+        { content: null },
         { content: 'test 9' },
       ],
     },
@@ -43,7 +43,7 @@ const structure = {
       content: null,
       children: [
         { content: 'test' },
-        { content: 'WiFi' },
+        { content: null },
         { content: 'BT' },
         { content: 'test 12' },
       ],

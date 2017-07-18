@@ -1,22 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function serializeTree(node, index, depth) {
-  if ( !node.children ) return (<div key={index}> {index + ':' + node.content + ' '} <br/></div>);
+const colors = {
+  'test': 'blue',
+  'WiFi': 'red',
+  'BT': 'green',
+  'test 2': 'grey',
+  'test 3': 'black',
+  'test 9': 'violet',
+  'test 12': 'cyan',
+  'Donnerblitz': 'yellow'
+};
 
-  return (<div key={index}> {index + ':' + node.content + ' '} <br/>
+function getColor(content) {
+  return (colors[content] ? colors[content] : 'white' );
+};
+
+function getTranslation(index, width) {
+    switch (index) {
+    case 0:
+      return '0,0';
+    case 1:
+      return '0,' +  width;
+    case 2:
+      return  width + ',' +  width;
+    case 3:
+      return  width + ',0';
+    default:
+      return '0,0';
+  }
+};
+
+function serializeTree(node, index, width) {
+  if ( !node.children ) return (<g transform={`translate(${getTranslation(index, width)})`}>
+    <rect x="0" y="0" width={width} height={width} fill={getColor(node.content)}/>
+  </g>);
+
+  return (<g transform={`translate(${getTranslation(index, width)})`}>
+    <rect x="0" y="0" width={width} height={width} fill={getColor(node.content)}/>
     {node.children.map(function(node, i) {
-      return serializeTree(node, index + '/'+ i, depth + 1);
+      return serializeTree(node, i, 0.5 * width);
     })}
-  </div>);
+  </g>);
 }
 
-export default function Quadtree(props) {
-  	return (<svg width="100" height="100">
-	  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="blue" />
-	</svg>);
+export default function QuadtreeMap(props) {
+  return (<svg width="1000" height="1000">
+    <g transform={`translate(${0},${0})`}>
+      { serializeTree(props.structure, 0, 1000) }
+    </g>
+  </svg>);
 }
 
-Quadtree.propTypes = {
+QuadtreeMap.propTypes = {
   structure: PropTypes.object,
 }
