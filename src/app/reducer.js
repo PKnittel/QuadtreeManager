@@ -3,7 +3,7 @@ export const TREE = 'TREE';
 export const MAP = 'MAP';
 
 const reducer = (state = {
-  viewMode: TEXT
+  viewMode: MAP
 }, action) => {
   switch (action.type) {
     case 'CHANGE_MODE':

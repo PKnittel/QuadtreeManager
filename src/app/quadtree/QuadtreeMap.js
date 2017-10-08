@@ -9,11 +9,14 @@ const colors = {
   'test 3': 'black',
   'test 9': 'violet',
   'test 12': 'cyan',
-  'Donnerblitz': 'yellow'
+  'Donnerblitz': 'yellow',
+  'inside': 'beige',
+  'outside': 'white',
+  'wall': 'black'
 };
 
 function getColor(content) {
-  return (colors[content] ? colors[content] : 'white' );
+  return (colors[content] ? colors[content] : 'transparent' );
 };
 
 function getTranslation(index, width) {
@@ -21,11 +24,11 @@ function getTranslation(index, width) {
     case 0:
       return '0,0';
     case 1:
-      return '0,' +  width;
+      return  width + ',0';
     case 2:
       return  width + ',' +  width;
     case 3:
-      return  width + ',0';
+      return '0,' +  width;
     default:
       return '0,0';
   }
@@ -45,9 +48,11 @@ function serializeTree(node, index, width) {
 }
 
 export default function QuadtreeMap(props) {
-  return (<svg width="1000" height="1000">
+  const mapHeight = 650;
+
+  return (<svg width="1000" height={mapHeight}>
     <g transform={`translate(${0},${0})`}>
-      { serializeTree(props.structure, 0, 1000) }
+      { serializeTree(props.structure, 0, mapHeight) }
     </g>
   </svg>);
 }

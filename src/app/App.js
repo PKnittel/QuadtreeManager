@@ -15,37 +15,133 @@ const structure = {
     {
       content: null,
       children: [
-        { content: 'test' },
-        { content: 'WiFi' },
-        { content: 'BT' },
-        { content: 'test 2' },
-      ],
-    },
-    {
-      content: 'Donnerblitz',
-      children: [
-        { content: null },
-        { content: 'WiFi' },
-        { content: 'BT' },
-        { content: 'test 3' },
+        {
+          content: null,
+          children: [
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'inside' },
+            { content: 'wall' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'inside' },
+            { content: 'inside' },
+          ],
+        },
+        { content: 'inside' },
+        {
+          content: null,
+          children: [
+            { content: 'wall' },
+            { content: 'inside' },
+            { content: 'inside' },
+            { content: 'wall' },
+          ],
+        },
       ],
     },
     {
       content: null,
       children: [
-        { content: 'test' },
-        { content: 'WiFi' },
-        { content: null },
-        { content: 'test 9' },
+        {
+          content: null,
+          children: [
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'inside' },
+            { content: 'inside' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'inside' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'inside' },
+          ],
+        },
+        { content: 'inside' },
       ],
     },
     {
       content: null,
       children: [
-        { content: 'test' },
-        { content: null },
-        { content: 'BT' },
-        { content: 'test 12' },
+        { content: 'inside' },
+        {
+          content: null,
+          children: [
+            { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'inside' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
+            { content: 'wall' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'inside' },
+            { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
+          ],
+        },
+      ],
+    },
+    {
+      content: null,
+      children: [
+        {
+          content: null,
+          children: [
+            { content: 'wall' },
+            { content: 'inside' },
+            { content: 'inside' },
+            { content: 'wall' },
+          ],
+        },
+        { content: 'inside' },
+        {
+          content: null,
+          children: [
+            { content: 'inside' },
+            { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
+          ],
+        },
+        {
+          content: null,
+          children: [
+            { content: 'wall' },
+            { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
+          ],
+        },
       ],
     }
   ]
@@ -71,6 +167,7 @@ class App extends Component {
         return <QuadtreeTree structure={structure}/>;
       case 'MAP':
         return <QuadtreeMap structure={structure}/>;
+      case 'TEXT':
       default:
         return <Quadtree structure={structure}/>;
     }

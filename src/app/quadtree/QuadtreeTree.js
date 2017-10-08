@@ -18,7 +18,7 @@ function serializeTree(node, index, width, center) {
 }
 
 export default function Quadtree(props) {
-  return (<svg width="1200" height="100%">
+  return (<svg width="1200" height="650px">
     <g transform={`translate(${600},${0})`}>
       { serializeTree(props.structure, 'x', 1000, 0) }
     </g>
