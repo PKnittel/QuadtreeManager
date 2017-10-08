@@ -50,7 +50,7 @@ function serializeTree(node, index, width) {
 export default function QuadtreeMap(props) {
   const mapHeight = 650;
 
-  return (<svg width="1000" height={mapHeight}>
+  return (<svg width="1000" height={mapHeight} onContextMenu={props.showContextMenu}>
     <g transform={`translate(${0},${0})`}>
       { serializeTree(props.structure, 0, mapHeight) }
     </g>
@@ -59,4 +59,5 @@ export default function QuadtreeMap(props) {
 
 QuadtreeMap.propTypes = {
   structure: PropTypes.object,
+  showContextMenu: PropTypes.func,
 }

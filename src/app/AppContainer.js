@@ -1,5 +1,6 @@
 import App from './App';
 import {connect} from 'react-redux';
+import * as actions from './actions';
 
 function mapStateToProps(state) {
   return {
@@ -7,4 +8,13 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch) {
+  return {
+    showContextMenu(e) {
+      e.preventDefault();
+      dispatch(actions.showContextMenu({x: e.pageX, y: e.pageY}));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

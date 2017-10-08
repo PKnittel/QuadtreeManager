@@ -9,6 +9,8 @@ import QuadtreeMap from './quadtree/QuadtreeMap';
 
 import NavBar from './NavBar/NavBarContainer';
 
+import ContextMenuContainer from './contextMenu/ContextMenuContainer';
+
 const structure = {
   content: null,
   children: [
@@ -157,6 +159,7 @@ class App extends Component {
         </div>
         <NavBar/>
         {this.renderTreeComponent()}
+        <ContextMenuContainer/>
       </div>
     );
   }
@@ -166,7 +169,7 @@ class App extends Component {
       case 'TREE':
         return <QuadtreeTree structure={structure}/>;
       case 'MAP':
-        return <QuadtreeMap structure={structure}/>;
+        return <QuadtreeMap structure={structure} showContextMenu={this.props.showContextMenu}/>;
       case 'TEXT':
       default:
         return <Quadtree structure={structure}/>;
