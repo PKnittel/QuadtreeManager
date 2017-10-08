@@ -23,10 +23,14 @@ class ContextMenu extends Component {
   }
 
   componentDidMount(){
-    this.contextMenu.focus();
+    this.focusMenu();
   }
 
   componentDidUpdate(){
+    this.focusMenu();
+  }
+
+  focusMenu(){
     if(this.contextMenu) {
       this.contextMenu.focus();
     }

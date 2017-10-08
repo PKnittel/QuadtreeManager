@@ -5,7 +5,7 @@ export const MAP = 'MAP';
 const reducer = (state = {
   viewMode: MAP,
   contextMenu: {
-    show: true,
+    show: false,
     position: {
       x: 200,
       y: 200

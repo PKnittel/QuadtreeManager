@@ -41,7 +41,7 @@ const structure = {
           children: [
             { content: 'wall' },
             { content: 'inside' },
-            { content: 'inside' },
+            { content: 'wall' },
             { content: 'wall' },
           ],
         },
@@ -72,12 +72,20 @@ const structure = {
           content: null,
           children: [
             { content: 'inside' },
-            { content: 'wall' },
-            { content: 'wall' },
             { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
           ],
         },
-        { content: 'inside' },
+        {
+          content: null,
+          children: [
+            { content: 'inside' },
+            { content: 'inside' },
+            { content: 'wall' },
+            { content: 'wall' },
+          ],
+        },
       ],
     },
     {
